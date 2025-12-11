@@ -1,0 +1,27 @@
+<main id="login">
+    <fieldset class="card">
+        <legend>Register</legend>
+        <form id="register" method="post" action="index.php?route=register">
+            <div id="nom-prenom">
+                <label for="nom">Nom:</label> <label for="prenom">Prénom:</label>
+                <input type="text" id="nom" name="nom" required> <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit">S'inscrire</button>
+        </form>
+        <?php if(isset($msg)){ ?>
+            <p><?= $msg ?></p>
+        <?php } ?>
+    </fieldset>
+</main>

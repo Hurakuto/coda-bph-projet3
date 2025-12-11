@@ -1,0 +1,14 @@
+{
+  "name": "projets/coda-bph-projet3",
+  "require": {
+    "vlucas/phpdotenv": "^5.6"
+  },
+  "autoload": {
+    "classmap": [
+      "controllers/",
+      "models",
+      "services/",
+      "managers/"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+<main id="ajouter">
+    <fieldset class="card">
+        <h3><?= $data['total']?> €</h3>
+        <form method="post" action="./index.php?route=ajouter">
+            <div id="last-input">
+                <label for="password">Montant à Ajouter:</label>
+                <input type="text" min="0.01" step="0" id="montant" name="montant" required>
+            </div>
+            <button type="submit">Ajouter</button>
+        </form>
+    </fieldset>
+</main>
