@@ -3,7 +3,7 @@
         'name' => 'projets/coda-bph-projet3',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f98401846869171bb184fbe3f297be470240ebdc',
+        'reference' => 'c9a05c7efbefd90472c426a9717fd706dccf1c4e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'projets/coda-bph-projet3' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f98401846869171bb184fbe3f297be470240ebdc',
+            'reference' => 'c9a05c7efbefd90472c426a9717fd706dccf1c4e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
