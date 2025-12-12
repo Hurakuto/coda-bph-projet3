@@ -25,16 +25,6 @@
                 {
                     $auth->register();
                 }
-                // elseif ($get["route"]==="contact")
-                // {
-                //     $page = new AuthController();
-                //     $page->contact();
-                // }
-                // else
-                // {
-                //     $page = new AuthController();
-                //     $page->notFound();
-                // }
             }
             else
             {

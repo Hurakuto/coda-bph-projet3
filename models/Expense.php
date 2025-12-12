@@ -2,7 +2,7 @@
 
 class Expense{
 
-    public function __construct(private int $amount_100, private int $id_user, private int $id_category, private ?int $id=NULL){}
+    public function __construct(private int $amount_100, private int $id_user, private int $id_category, private string $motif, private ?int $id=NULL){}
 
     public function getAmount(){
         return $this->amount_100;
@@ -10,6 +10,14 @@ class Expense{
 
     public function setAmount($amount_100){
         $this->amount_100 = $amount_100;
+    }
+
+    public function getMotif(){
+        return $this->motif;
+    }
+
+    public function setMotif($motif){
+        $this->motif = $motif;
     }
 
     public function getUser(){

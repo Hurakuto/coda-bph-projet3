@@ -1,18 +1,79 @@
 <main id="home">
     <div id="argent">
         <a id="logout" href="./index.php">Déconnexion</a>
-        <div><h2><?= $data['total']?> €</h2></div>
+        <div><h2><?= $data['user_total']?>€</h2></div>
         <div>
             <a href="./index.php?route=ajouter">Ajouter</a>
             <a href="./index.php?route=depenser">Dépenser</a>
             <a href="./index.php?route=rembourser">Rembourser</a>
         </div>
     </div>
-    <div>
-        <!-- <ul>
-            <?php // foreach(){ ?>
-                <div></div>
-            <?php //} ?>
-        </ul> -->
+    <div id="tables">
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Motif</th>
+                        <th>Montant</th>
+                    </tr>
+                    <?php foreach($data['expenses'] as $expense){ ?>
+                    <tr>
+                        <td><?= $expense['category'] ?></td>
+                        <td><?= $expense['motif'] ?></td>
+                        <td><?= $expense['amount'] ?>€</td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Je dois à :</th>
+                        <th>Ce Montant :</th>
+                    </tr>
+                    <?php foreach($data['receivers'] as $receiver){ ?>
+                    <tr>
+                        <td><?= $receiver['receiver'][0] ?> <?= $receiver['receiver'][1] ?></td>
+                        <td><?= $receiver['amount'] ?>€</td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Ils me doivent :</th>
+                        <th>Ce Montant :</th>
+                    </tr>
+                    <?php foreach($data['payers'] as $payer){ ?>
+                    <tr>
+                        <td><?= $payer['payer'][0] ?> <?= $payer['payer'][1] ?></td>
+                        <td><?= $payer['amount'] ?>€</td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Ils me doivent :</th>
+                        <th>Au total :</th>
+                    </tr>
+                    <?php foreach($data['total'] as $receiver){ ?>
+                    <tr>
+                        <td><?= $receiver['receiver'][0] ?> <?= $receiver['receiver'][1] ?></td>
+                        <td><?= $receiver['total'] ?>€</td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </main>

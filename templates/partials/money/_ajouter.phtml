@@ -1,12 +1,13 @@
 <main id="ajouter">
-    <fieldset class="card">
-        <h3><?= $data['total']?> €</h3>
+    <fieldset class="card" id="ajouter">
+        <h3 id="h3-ajouter"><?= $data['total']?> €</h3>
         <form method="post" action="./index.php?route=ajouter">
             <div id="last-input">
                 <label for="montant">Montant à Ajouter:</label>
-                <input type="text" min="0.01" step="0" id="montant" name="montant" required>
+                <input type="text" placeholder="CB : XXX-XXX-XXX-XXX" min="0.01" step="0" id="montant" name="montant" required>
             </div>
             <button type="submit">Ajouter</button>
+            <a href="./index.php?route=home">Retour</a>
         </form>
     </fieldset>
 </main>

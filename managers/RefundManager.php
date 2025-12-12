@@ -7,7 +7,7 @@ class RefundManager extends AbstractManager{
     }
 
     public function create(Refund $refund) : void {
-            $query = $this->db->prepare("INSERT INTO refunds(payer_id, receiver_id, amount_100) VALUES(:payer_id, :reveicer_id, :amount)");
+            $query = $this->db->prepare("INSERT INTO refunds(payer_id, receiver_id, amount_100) VALUES(:payer_id, :receiver_id, :amount_100)");
             $parameters = 
             [
                 "payer_id" => $refund->getPayer(),
@@ -49,9 +49,9 @@ class RefundManager extends AbstractManager{
             ];
 
             $query->execute($parameters);
-            $expense = $query->fetch(PDO::FETCH_ASSOC);
+            $refund = $query->fetch(PDO::FETCH_ASSOC);
 
-            return  new Refund($refund['payer_id'], $refund['receiver_id'], $refund['amount_100'], $refund['id']);
+            return new Refund($refund['payer_id'], $refund['receiver_id'], $refund['amount_100'], $refund['id']);
         }
 
         public function findAll() : array {

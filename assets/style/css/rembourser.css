@@ -1,31 +1,60 @@
 #rembourser{
     color: white;
+    height: 100vh;
 }
-#rembourser.all{
+#rembourser>.all{
+    text-align: center;
 
 }
 #rembourser>.all>h3{
     text-shadow: 0 0 10px white;
     text-align: center;
     font-size: 2rem;
-    margin: 8% 0;
+    margin-top: 8%;
+    margin-bottom: 2%;
 
+}
+#rembourser>.all>a{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 1% 2.5%;
+    background-color: rgb(0, 144, 160);
 }
 #rembourser>.all>form{
-
+    margin-top: 2%;
 }
 #rembourser>.all>form>table{
-
+    width: 100%;
+    text-align: center;
 }
-#rembourser>.all>form>table>tr>th{
-
+#rembourser>.all>form>table>tbody{
+    width: 100%;
 }
-#rembourser>.all>form>table>tr{
-
+#rembourser>.all>form>table>tbody>tr>th{
+    width: 20%;
+    height: 20px;
+    padding: 1% 0;
 }
-#rembourser>.all>form>table>tr>td{
-
+#rembourser>.all>form>table>tbody>tr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 0;
+    border: 1px solid #ffffff55;
+    border-left: none;
+    border-right: none;
 }
-#rembourser>.all>form>table>tr>td>button{
-
+#rembourser>.all>form>table>tbody>tr>td{
+    height: 20px;
+    width: 20%;
+    padding: 1% 0;
+}
+#rembourser>.all>form>table>tbody>tr>td>a{
+    color: white;
+    text-decoration: none;
+    padding: 1% 2.5%;
+    background-color: rgb(0, 144, 160);
+    border-radius: 25px;
 }

@@ -1,10 +1,13 @@
 <main id="ajouter">
-    <fieldset class="card">
+    <fieldset class="card" id="card-depenser">
         <h3><?= $data['total']?> €</h3>
         <form method="post" action="./index.php?route=depenser">
             <div id="last-input">
                 <label for="montant">Montant de la Dépense:</label>
-                <input id="last" type="text" min="0.01" step="0" id="montant" name="montant" required>
+                <input id="last" type="text" min="0.01" step="0" placeholder="50€" id="montant" name="montant" required>
+
+                <label for="motif">Motif de la Dépense:</label>
+                <input id="last" type="text" placeholder="kebab" maxlength="20" id="motif" name="motif" required>
 
                 <label for="category" class="form-label">Catégorie</label>
                 <select class="form-select" id="category" name="category">
@@ -13,7 +16,19 @@
                     <?php } ?>
                 </select>
             </div>
+            <div class="multi-select">
+                <button type="button" class="trigger">Qui doit vous rembourser ?</button>
+                <div class="dropdown">
+                <?php foreach($data['users'] as $user){ ?>
+                    <label>
+                        <input type="checkbox" name="payer_<?= $user['id'] ?>" value="<?= $user['id'] ?>">
+                        <?= $user['lastname'] ?> <?= $user['firstname'] ?>
+                    </label>
+                <?php } ?>
+                </div>
+            </div>
             <button type="submit">Ajouter</button>
+            <a href="./index.php?route=home">Retour</a>
         </form>
     </fieldset>
 </main>

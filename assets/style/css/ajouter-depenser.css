@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%; height: 100vh;
     margin: 0;
     color: white;
@@ -12,12 +13,24 @@
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.6);
     border: 1px solid rgba(255,255,255,0.03);
-    width: 25%; height: 50%;
+    width: 25%; height: 75%;
+    box-shadow: 0 0 20px white;
+}
+#ajouter>#ajouter{
+    background-color: transparent;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+    width: 25%; height: 40%;
     box-shadow: 0 0 20px white;
 }
 #ajouter>fieldset>h3{
     color: white;
     text-shadow: 0 0 10px black;
+}
+#ajouter>#h3-ajouter{
+    margin-bottom: 5%;
 }
 #ajouter>fieldset>div{
     display: flex;
@@ -41,16 +54,14 @@
     flex-direction: column;
     margin: 4% 0;
 }
-#ajouter>fieldset>form>#last-input{
-    margin-bottom: 20%;
-}
 #ajouter>fieldset>form>button{
     background-color: transparent;
     border-radius: 8px;
     border: solid 2px white;
     color: white;
-    margin: 5% 35%;
-    width: 30%;
+    padding: 0;
+    margin: 5% 17%;
+    width: 65%;
     transition: all 0.2s linear;
 }
 #ajouter>fieldset>form>button:hover{
@@ -91,9 +102,14 @@
 #ajouter>.card>p{
     color: white;
 }
-
+#ajouter>.card>form>a{
+    color: white;
+    text-underline-offset: 4px;
+    margin-top: 5%;
+    text-align: center;
+}
 #ajouter>.card>form>div>#last{
-    margin-bottom: 20%;
+    margin-bottom: 5%;
 }
 
 #ajouter>.card>form>div>.form-label{
@@ -106,8 +122,65 @@
     border-radius: 8px;
     padding: 1%;
 }
+#category{
+    /* margin-bottom: 5%; */
+}
 #category>option{
     background-color: #191c21;
     border: none;
     color: white;
+}
+
+
+
+
+
+#ajouter>fieldset>form>.multi-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 35%;
+}
+.trigger {
+  width: 100%;
+  padding: 10px;
+  background: #191b21;
+  color: white;
+  font-weight: 700;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #191b21;
+    border: 1px solid white;
+    border-radius: 6px;
+    padding: 8px 0;
+    z-index: 10;
+    margin-bottom: 20%;
+    max-height: 300%;
+}
+
+.dropdown label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown label:hover {
+    background: #ffffff35;
+    color: #111;
+}
+
+.dropdown input[type="checkbox"] {
+    accent-color: white;
 }
