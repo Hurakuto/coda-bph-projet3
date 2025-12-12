@@ -2,12 +2,18 @@
 
 abstract class AbstractController
 {
-    protected function render(string $template, array $data) : void
+    public function __construct()
+    {
+        $category_m = new CategoryManager();
+        $category_m->checkAndCreateDefaultCategories();
+    }
+
+    protected function render(string $template, array $data): void
     {
         require "templates/layout.phtml";
     }
 
-    protected function redirect(string $route) : void
+    protected function redirect(string $route): void
     {
         header("Location: $route");
     }

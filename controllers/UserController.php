@@ -2,11 +2,9 @@
 
 class UserController extends AbstractController
 {
-
     public function home(): void
     {
         if (isset($_SESSION['id'])) {
-
             $category_m = new CategoryManager();
 
             $user_m = new UserManager();
@@ -18,12 +16,11 @@ class UserController extends AbstractController
             $all_expenses = [];
             foreach ($expenses as $expense) {
                 if ($_SESSION['id'] === $expense->getUser()) {
-                    $all_expenses[] =
-                        [
-                            'amount' => $expense->getAmount() / 100,
-                            'category' => $category_m->findOne($expense->getCategory())->getName(),
-                            'motif' => $expense->getMotif()
-                        ];
+                    $all_expenses[] = [
+                        'amount' => $expense->getAmount() / 100,
+                        'category' => $category_m->findOne($expense->getCategory())->getName(),
+                        'motif' => $expense->getMotif()
+                    ];
                 }
             }
 
@@ -33,23 +30,21 @@ class UserController extends AbstractController
             $all_payers = [];
             foreach ($refunds as $refund) {
                 if ($refund->getReceiver() === $_SESSION['id']) {
-                    $all_payers[] =
-                        [
-                            "receiver_id" => $refund->getReceiver(),
-                            "payer" => [$user_m->findOne($refund->getPayer())->getFirstName(), $user_m->findOne($refund->getPayer())->getLastName()],
-                            "amount" => $refund->getAmount() / 100
-                        ];
+                    $all_payers[] = [
+                        "receiver_id" => $refund->getReceiver(),
+                        "payer" => [$user_m->findOne($refund->getPayer())->getFirstName(), $user_m->findOne($refund->getPayer())->getLastName()],
+                        "amount" => $refund->getAmount() / 100
+                    ];
                 }
             }
 
             $all_receivers = [];
             foreach ($refunds as $refund) {
                 if ($refund->getPayer() === $_SESSION['id']) {
-                    $all_receivers[] =
-                        [
-                            "receiver" => [$user_m->findOne($refund->getReceiver())->getFirstName(), $user_m->findOne($refund->getReceiver())->getLastName()],
-                            "amount" => $refund->getAmount() / 100
-                        ];
+                    $all_receivers[] = [
+                        "receiver" => [$user_m->findOne($refund->getReceiver())->getFirstName(), $user_m->findOne($refund->getReceiver())->getLastName()],
+                        "amount" => $refund->getAmount() / 100
+                    ];
                 }
             }
 
@@ -103,7 +98,6 @@ class UserController extends AbstractController
 
     public function ajouter()
     {
-
         if (isset($_SESSION['id'])) {
             $user_m = new UserManager();
             $user = $user_m->findOne($_SESSION['id']);
@@ -125,9 +119,7 @@ class UserController extends AbstractController
 
                     $user_m->update($user);
 
-                    $user_c = new UserController();
-
-                    $user_c->redirect("./index.php?route=home");
+                    $this->redirect("./index.php?route=home");
                 }
             }
         } else {
@@ -137,9 +129,7 @@ class UserController extends AbstractController
 
     public function depenser()
     {
-
         if (isset($_SESSION['id'])) {
-
             $category_m = new CategoryManager();
             $categories = $category_m->findAll();
 
@@ -151,26 +141,22 @@ class UserController extends AbstractController
 
             foreach ($users as $user) {
                 if ($user->getId() != $_SESSION['id']) {
-                    $all_users[] =
-                        [
-                            "id" => $user->getId(),
-                            "firstname" => $user->getFirstName(),
-                            "lastname" => $user->getLastName()
-                        ];
+                    $all_users[] = [
+                        "id" => $user->getId(),
+                        "firstname" => $user->getFirstName(),
+                        "lastname" => $user->getLastName()
+                    ];
                 }
             }
 
             $all_categories = [];
 
             foreach ($categories as $category) {
-                $all_categories[] =
-                    [
-                        "id" => $category->getId(),
-                        "name" => $category->getName()
-                    ];
+                $all_categories[] = [
+                    "id" => $category->getId(),
+                    "name" => $category->getName()
+                ];
             }
-
-
 
             $this->render(
                 "money/_depenser",
@@ -221,9 +207,7 @@ class UserController extends AbstractController
                         $refund_m->create(new Refund($id, $_SESSION['id'], $montant));
                     }
 
-                    $user_c = new UserController();
-
-                    $user_c->redirect("./index.php?route=home");
+                    $this->redirect("./index.php?route=home");
                 }
             }
         } else {
@@ -233,9 +217,7 @@ class UserController extends AbstractController
 
     public function rembourser()
     {
-
         if (isset($_SESSION['id'])) {
-
             $user_m = new UserManager();
             $user = $user_m->findOne($_SESSION['id']);
 
@@ -248,13 +230,12 @@ class UserController extends AbstractController
 
             foreach ($refunds as $refund) {
                 if ($refund->getPayer() === $_SESSION['id']) {
-                    $all_refunds[] =
-                        [
-                            "id" => $refund->getId(),
-                            "receiver_firstname" => $user_m->findOne($refund->getReceiver())->getFirstName(),
-                            "receiver_lastname" => $user_m->findOne($refund->getReceiver())->getLastName(),
-                            "amount" => $refund->getAmount() / 100
-                        ];
+                    $all_refunds[] = [
+                        "id" => $refund->getId(),
+                        "receiver_firstname" => $user_m->findOne($refund->getReceiver())->getFirstName(),
+                        "receiver_lastname" => $user_m->findOne($refund->getReceiver())->getLastName(),
+                        "amount" => $refund->getAmount() / 100
+                    ];
                 }
             }
 
@@ -290,6 +271,5 @@ class UserController extends AbstractController
         } else {
             $this->redirect("./index.php");
         }
-
     }
 }
