@@ -91,3 +91,23 @@
 #ajouter>.card>p{
     color: white;
 }
+
+#ajouter>.card>form>div>#last{
+    margin-bottom: 20%;
+}
+
+#ajouter>.card>form>div>.form-label{
+    margin-bottom: 1%;
+}
+#ajouter>.card>form>div>select{
+    color: white;
+    background-color: transparent;
+    border: solid 2px white;
+    border-radius: 8px;
+    padding: 1%;
+}
+#category>option{
+    background-color: #191c21;
+    border: none;
+    color: white;
+}

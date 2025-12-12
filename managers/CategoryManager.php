@@ -53,13 +53,13 @@
         public function findAll() : array {
             $query = $this->db->prepare("SELECT * FROM category");
 
-            $query->execute($parameters);
+            $query->execute();
             $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
             $all_categories = [];
 
             foreach($categories as $category){
-                $all_categories[] = new Category($category['name']);
+                $all_categories[] = new Category($category['name'], $category['id']);
             }
 
             return $all_categories;

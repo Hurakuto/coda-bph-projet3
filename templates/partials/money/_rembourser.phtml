@@ -1,0 +1,23 @@
+<main id="rembourser">
+    <fieldset class="all">
+        <h3><?= $data['payer_lastname'] ?> <?= $data['payer_firstname'] ?></h3>
+        <form method="post" action="./index.php?route=rembourser">
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Montant</th>
+                    <th></th>
+                </tr>
+                <?php foreach($data['refunds'] as $refund){ ?>
+                <tr>
+                    <td><?= $refund['receiver_lastname'] ?></td>
+                    <td><?= $refund['receiver_firstname'] ?></td>
+                    <td><?= $refund['amount'] ?></td>
+                    <td><a href="./index.php?route=rembourser&id=<?= $refund['id'] ?>"></a></td>
+                </tr>
+                <?php } ?>
+            </table>
+        </form>
+    </fieldset>
+</main>

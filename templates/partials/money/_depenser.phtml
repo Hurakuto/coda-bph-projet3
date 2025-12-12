@@ -1,0 +1,19 @@
+<main id="ajouter">
+    <fieldset class="card">
+        <h3><?= $data['total']?> €</h3>
+        <form method="post" action="./index.php?route=depenser">
+            <div id="last-input">
+                <label for="montant">Montant de la Dépense:</label>
+                <input id="last" type="text" min="0.01" step="0" id="montant" name="montant" required>
+
+                <label for="category" class="form-label">Catégorie</label>
+                <select class="form-select" id="category" name="category">
+                    <?php foreach($data['categories'] as $category){ ?>
+                        <option value="<?= $category['name'] ?>"><?= $category['name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <button type="submit">Ajouter</button>
+        </form>
+    </fieldset>
+</main>

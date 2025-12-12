@@ -2,7 +2,7 @@
 
 class Refund{
 
-    public function __construct(private int $payer_id, private int $reveiver_id, private float $amout, private ?int $id=NULL){}
+    public function __construct(private int $payer_id, private int $reveiver_id, private int $amout_100, private ?int $id=NULL){}
 
     public function getPayer(){
         return $this->payer_id;
@@ -21,11 +21,11 @@ class Refund{
     }
 
     public function getAmout(){
-        return $this->amout;
+        return $this->amout_100;
     }
 
-    public function setAmout($amout){
-        $this->amout = $amout;
+    public function setAmout($amout_100){
+        $this->amout_100 = $amout_100;
     }
 
     public function getId(){
